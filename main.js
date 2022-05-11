@@ -40,7 +40,6 @@ function addBooktoLibrary(title, author, pages, read) {
 }
 
 function displayBook() {
-    console.log(this.title.value);
     for (i=0; i < myLibrary.length; i++) {
         const newBook = document.createElement("li");
         newBook.innerText = `${this.title.value}`;
