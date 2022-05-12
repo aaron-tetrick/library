@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
+    <link href='https://fonts.googleapis.com/css?family=Charm' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Khula' rel='stylesheet' type='text/css'>
     
     <title>Library</title>
 </head>
 <body>
-    <h1 id="h1">Library</h1>
-        <form>
+    <img src="paper-bkg.jpg" alt="Paper background image">
+    <!-- <h1 id="h1">Library</h1> -->
+    <h1>LIBRARY</h1>    
+    <form>
             <div>
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title" required>
@@ -25,22 +29,42 @@
             <input type="number" name="pages" id="pages" min="1" required>
             </div>
             <div>
-            <label for="read">Have you read it?</label>
+            <label for="read">Check if read</label>
             <input type="checkbox" name="read" id="read">
             </div>
             <div>
-            <button id="submit" type="submit">Submit</button>
+            <input id="submit" value="Add Book"type="submit"></input>
             </div>
         </form>
 
-<div class="container">
-    <ul id="library">
-        <h2>Book Title<h2>
-        <h2>Author</h2>
-        <h2>Page Numbers</h2>
-        <h2>Read it?</h2>
-    </ul>
-</div>
+
+        <table id="library-table">
+            <tr>
+            <th class="book-item-header item-title">Book Title</th>
+            <th class="book-item-header item-author">Author</th>
+            <th class="book-item-header item-pages">Page Numbers</th>
+            <th class="book-item-header item-read">Read Status</th>
+            </tr>
+            <tr>
+            <td class="book-item">Harry Potter</td>
+            <td class="book-item">JK Rowling</td>
+            <td class="book-item">678</td>
+            <td class="book-item"><button>Have Read</button></td>
+            </tr>
+            <tr>
+                <td class="book-item">Harry Potter</td>
+                <td class="book-item">JK Rowling</td>
+                <td class="book-item">678</td>
+                <td class="book-item"><button>Have Read</button></td>
+                </tr>
+                <tr>
+                    <td class="book-item">Harry Potter</td>
+                    <td class="book-item">JK Rowling</td>
+                    <td class="book-item">678</td>
+                    <td class="book-item"><button>Have Read</button></td>
+                    </tr>
+        </table>
+
 
 
     

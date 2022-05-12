@@ -1,5 +1,4 @@
 
-const h1 = document.getElementById("h1");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
@@ -7,6 +6,7 @@ const read = document.getElementById("read");
 const submit = document.getElementById("submit");
 const library = document.getElementById("library");
 const form = document.querySelector('form');
+const table = document.querySelector('table')
 
 console.log(form);
 
@@ -65,3 +65,5 @@ const Book2 = new Book("1984", "George Orwell", 550, 'No');
 // console.log(Book1.sayInfo());
 // console.log(Book2.info());
 // console.dir(Book2);
+
+console.log(table);
