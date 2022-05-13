@@ -1,3 +1,3 @@
 # library
 
-This is mt Library project for The Odin Project.
+This is my Library project for The Odin Project.

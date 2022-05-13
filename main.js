@@ -6,16 +6,16 @@ const read = document.getElementById("read");
 const submit = document.getElementById("submit");
 const library = document.getElementById("library");
 const form = document.querySelector('form');
-const table = document.querySelector('table')
+const table = document.querySelector('table');
+const test = document.querySelector('.test');
 
-console.log(form);
 
 form.addEventListener('submit', runEvent)
 form.addEventListener('submit', () => addBooktoLibrary(title.value, author.value, pages.value, read.checked))
 
 /*Creates empty library*/
 let myLibrary = [];
-
+console.log(myLibrary);
 function runEvent(e) {
     e.preventDefault();
 }
@@ -41,16 +41,52 @@ function addBooktoLibrary(title, author, pages, read) {
 
 function displayBook() {
     for (i=0; i < myLibrary.length; i++) {
-        const newBook = document.createElement("li");
-        newBook.innerText = `${this.title.value}`;
-        library.appendChild(newBook);
-        console.log(newBook);
+        // const newBookLine = document.createElement("tr");
+        // table.appendChild(newBookLine);
+        const newBook = document.createElement("td");
+        newBook.innerText = `${myLibrary[0].title}`;
+        newBook.className = "book-item"; 
+        test.appendChild(newBook);
+        console.log(myLibrary);
+        console.log(displayRead());
         console.log(this.title.value);
         //let addBook = new Book(this.title.value, this.author.value, this.pages.value, this.read.value);
+    };
+    displayAuthor();
+    displayPages();
+    displayRead();
+};
+
+function displayAuthor() {
+    const newAuthor = document.createElement('td');
+    newAuthor.innerText = `${myLibrary[0].author}`;
+    newAuthor.className = "book-item";
+    test.appendChild(newAuthor);
+};
+
+function displayPages() {
+    const newPages = document.createElement('td');
+    newPages.innerText = `${myLibrary[0].pages}`;
+    newPages.className = "book-item";
+    test.appendChild(newPages);
+};
+
+function displayRead() {
+    const newRead = document.createElement('td');
+    const newReadBtn = document.createElement('button');
+    if (myLibrary[0].read === true) {
+        newReadBtn.className = ".read-button-true";
+        newReadBtn.innerText = "Have Read";
+    } else if (myLibrary.read === false) {
+        newReadBtn.className = ".read-button-false";
+        newReadBtn.innerText = "Not Read";
     }
+    newRead.className = "book-item";
+    test.appendChild(newRead);
+    //newRead.appendChild(newReadBtn);
 }
 
-const newBook = document.createElement("li");
+
 
 
 
