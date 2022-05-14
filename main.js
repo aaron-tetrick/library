@@ -1,4 +1,3 @@
-
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
@@ -33,11 +32,9 @@ function addBooktoLibrary(title, author, pages, read) {
     const bookObj = new Book(title, author, pages, read);
     myLibrary.push(bookObj);
     displayBook(title, author, pages, read);
-    console.log(read);
 }
 
 function displayBook(title, author, pages, read) {
-    if (myLibrary.length <= 10) {
     let newBookLine = document.createElement('tr')
     tbody.appendChild(newBookLine);
 
@@ -48,7 +45,8 @@ function displayBook(title, author, pages, read) {
     let newReadBtn = document.createElement('button');
     let deleteLine = document.createElement('td');
     let deletebtn = document.createElement('button');
-    
+
+    newBookLine.className = "book-line";
     newTitle.className = "book-item";
     newAuthor.className = "book-item";
     newPages.className = "book-item";
@@ -65,7 +63,7 @@ function displayBook(title, author, pages, read) {
 } else if (read === 'not-read') {
     newReadBtn.innerText = 'Not Read'
     newReadBtn.className = 'read-button-false'
-}
+};
     newBookLine.appendChild(newTitle);
     newBookLine.appendChild(newAuthor);
     newBookLine.appendChild(newPages);
@@ -74,129 +72,45 @@ function displayBook(title, author, pages, read) {
     newBookLine.appendChild(deleteLine);
     deletebtn.appendChild(document.createTextNode('X'));
     deleteLine.appendChild(deletebtn);
-
-
-
-    console.log(myLibrary);
-
-    console.log(`New Book Line: ${newBookLine}`);
-    console.log(`New Title: ${newTitle}`);
     
-    console.log(table);
+deletebtn.addEventListener('click', deleteBook);
+newReadBtn.addEventListener('click', toggleRead);
 
-    myLibrary.forEach(book => {
-        newBookLine.className = `${book.title}`;
-        //newBookLine.innerText = book.title;
-            console.log(tbody);
-            console.log(book.title)
-    });
-
-
-    
-
-    }
-    // const newTitle = document.createElement('td');
-    // newTitle.innerText = `${myLibrary[0].title}`;
-    // newTitle.className = "book-item";
-    // newBookLine.appendChild(newTitle)
-    
 };
-  
+
+function deleteBook(e) {
+    console.log(e.target.parentElement.parentElement);
+    if(e.target.classList.contains('delete-btn')) {
+        if(confirm('Are You Sure?')) {
+            let parentElement = e.target.parentElement.parentElement;
+            tbody.removeChild(parentElement);
+        }
+        
+    }
+    
+}
+
+function toggleRead(e) {
+    console.log(e.target);
+    if(e.target.innerText === "Have Read") {
+        e.target.innerText = "Not Read";
+        e.target.classList.remove('read-button-true');
+        e.target.classList.add('read-button-false');
+        read.value = false;
+        console.log(Book);
+        console.log(myLibrary[0])
+    } else if (e.target.innerText === "Not Read") {
+        e.target.innerText = "Have Read";
+        e.target.classList.remove('read-button-false');
+        e.target.classList.add('read-button-true');
+        read.value = false;
+        console.log(Book);
+        console.log(myLibrary[0].read);
+    }
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function displayTitle(book) {
-//     const newTitle = document.createElement('td');
-//     newTitle.innerText = `${myLibrary[0].title}`;
-//     newTitle.className = "book-item";
-//     book.appendChild(newTitle);
-
+// Book.prototype.sayRead = function() {
+//     console.log(this.read);
 // }
-
-// function displayAuthor(book) {
-//     const newAuthor = document.createElement('td');
-//     newAuthor.innerText = `${myLibrary[0].author}`;
-//     newAuthor.className = "book-item";
-//     book.appendChild(newAuthor);
-// };
-
-// function displayPages(book) {
-//     const newPages = document.createElement('td');
-//     newPages.innerText = `${myLibrary[0].pages}`;
-//     newPages.className = "book-item";
-//     book.appendChild(newPages);
-// };
-
-// function displayRead(book) {
-//     // if (myLibrary[0].read === true) {
-//         const newRead = document.createElement('td');
-//         const newReadBtn = document.createElement('button');
-//         newReadBtn.className = ".read-button-true";
-//         newReadBtn.innerText = "Have Read";
-//         newRead.className = "book-item";
-//         book.appendChild(newRead);
-//         newRead.appendChild(newReadBtn);
-//     // } else if (myLibrary.read === false) {
-//     //     const newRead = document.createElement('td');
-//     //     const newReadBtn = document.createElement('button');
-//     //     newReadBtn.className = ".read-button-false";
-//     //     newReadBtn.innerText = "Not Read";
-//     //     newRead.className = "book-item";
-//     //     book.appendChild(newRead);
-//     // }
-//     console.log(book)
-//     //newRead.appendChild(newReadBtn);
-// }
-
-
-// const Book1 = new Book("Harry Potter", "JK Rowling", 899, "Yes");
-// const Book2 = new Book("1984", "George Orwell", 550, 'No');
-// console.log(Book1.sayInfo());
-// console.log(Book2.info());
-// console.dir(Book2);
