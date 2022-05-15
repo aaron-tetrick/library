@@ -9,110 +9,172 @@ const table = document.querySelector('table');
 const tbody = document.querySelector('.tbody');
 const libraryHeader = document.querySelector(".book-item-header")
 
+
+//EVENT LISTENERS
 form.addEventListener('submit', runEvent)
-form.addEventListener('submit', () => addBooktoLibrary(title.value, author.value, pages.value, read.value))
+form.addEventListener('submit', () => addBookToLibrary(title.value, author.value, pages.value, read.value))
 
 
-/*Creates empty library*/
+//CREATES EMPTY LIBRARY
 let myLibrary = [];
 
-/*PREVENTS DEFAULT*/ 
+//PREVENTS DEFAULT 
 function runEvent(e) {
     e.preventDefault();
-}
-/*BOOK CONSTRUCTOR FUNCTION*/
+};
+
+//BOOK CONSTRUCTOR FUNCTION
 function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+    this.bookTitle = title;
+    this.bookAuthor = author;
+    this.bookPages = pages;
+    this.bookRead = read;
+    console.log(title);
+    console.log(this);
+    console.log(this.title)
+    console.log(this.bookTitle)
+    console.log(this.newTitle)
+    console.log(this.bookAuthor)
+};
 
-function addBooktoLibrary(title, author, pages, read) {
-    const bookObj = new Book(title, author, pages, read);
+//console.log(Book("One", 'Me', '69', 'have-read'))
+
+//ADDS NEW BOOK TO LIBRARY
+const addBookToLibrary = function(newTitle, newAuthor, newPages, newRead) {
+    const bookObj = new Book(newTitle, newAuthor, newPages, newRead);
     myLibrary.push(bookObj);
-    displayBook(title, author, pages, read);
+    //displayBook(title, author, pages, read);
     console.log(myLibrary);
+    console.dir(bookObj);
+    console.log(this);
+    console.log(this.title);
+    console.log(this.bookTitle);
+    console.log(this.newTitle);
+};
+
+
+addBookToLibrary.prototype = Object.create(Book.prototype);
+console.dir(addBookToLibrary);
+
+const displayBook = function() {
+    const newObj = {}
+    console.log(newObj); 
 }
+displayBook.prototype = Object.create(Book.prototype)
+console.log(displayBook());
 
-function displayBook(title, author, pages, read) {
-    let newBookLine = document.createElement('tr')
-    tbody.appendChild(newBookLine);
+//I want my book entry to be entered into the myLibrary array
+//I want to display the myLibrary array onto the page
+//I want to press the read-btn and change the status on the page and in the myLibrary array
+//I want to press the delete-btn and delete the entry on the page and in the myLibrary array
 
-    let newTitle = document.createElement('td');
-    let newAuthor = document.createElement('td');
-    let newPages = document.createElement('td');
-    let newRead = document.createElement('td');
-    let newReadBtn = document.createElement('button');
-    let deleteLine = document.createElement('td');
-    let deletebtn = document.createElement('button');
 
-    newBookLine.className = "book-line";
-    newTitle.className = "book-item";
-    newAuthor.className = "book-item";
-    newPages.className = "book-item";
-    newRead.className = "book-item";
-    deleteLine.className = "book-item";
-    deleteLine.className = "delete-item";
-    deletebtn.className = "delete-btn";
 
-    newTitle.innerText = `${title}`;
-    newAuthor.innerText = `${author}`;
-    newPages.innerText = `${pages}`;
-    if (read === 'have-read') {
-    newReadBtn.innerText = 'Have Read';
-    newReadBtn.className = 'read-button-true';    
-} else if (read === 'not-read') {
-    newReadBtn.innerText = 'Not Read'
-    newReadBtn.className = 'read-button-false'
-};
-    newBookLine.appendChild(newTitle);
-    newBookLine.appendChild(newAuthor);
-    newBookLine.appendChild(newPages);
-    newBookLine.appendChild(newRead);
-    newRead.appendChild(newReadBtn);
-    newBookLine.appendChild(deleteLine);
-    deletebtn.appendChild(document.createTextNode('X'));
-    deleteLine.appendChild(deletebtn);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function displayBook(title, author, pages, read) {
+//     let newBookLine = document.createElement('tr')
+//     tbody.appendChild(newBookLine);
+
+//     let newTitle = document.createElement('td');
+//     let newAuthor = document.createElement('td');
+//     let newPages = document.createElement('td');
+//     let newRead = document.createElement('td');
+//     let newReadBtn = document.createElement('button');
+//     let deleteLine = document.createElement('td');
+//     let deletebtn = document.createElement('button');
+
+//     newBookLine.className = "book-line";
+//     newTitle.className = "book-item";
+//     newAuthor.className = "book-item";
+//     newPages.className = "book-item";
+//     newRead.className = "book-item";
+//     deleteLine.className = "book-item";
+//     deleteLine.className = "delete-item";
+//     deletebtn.className = "delete-btn";
+
+//     newTitle.innerText = `${title}`;
+//     newAuthor.innerText = `${author}`;
+//     newPages.innerText = `${pages}`;
+//     if (read === 'have-read') {
+//     newReadBtn.innerText = 'Have Read';
+//     newReadBtn.className = 'read-button-true';    
+// } else if (read === 'not-read') {
+//     newReadBtn.innerText = 'Not Read'
+//     newReadBtn.className = 'read-button-false'
+// };
+//     newBookLine.appendChild(newTitle);
+//     newBookLine.appendChild(newAuthor);
+//     newBookLine.appendChild(newPages);
+//     newBookLine.appendChild(newRead);
+//     newRead.appendChild(newReadBtn);
+//     newBookLine.appendChild(deleteLine);
+//     deletebtn.appendChild(document.createTextNode('X'));
+//     deleteLine.appendChild(deletebtn);
     
-deletebtn.addEventListener('click', deleteBook);
-newReadBtn.addEventListener('click', toggleRead);
+// deletebtn.addEventListener('click', DeleteBook);
+// newReadBtn.addEventListener('click', toggleRead);
 
-};
+// };
 
-function deleteBook(e) {
-    console.log(e.target.parentElement.parentElement);
-    if(e.target.classList.contains('delete-btn')) {
-        if(confirm('Are You Sure?')) {
-            let parentElement = e.target.parentElement.parentElement;
-            tbody.removeChild(parentElement);
-        }
+// const DeleteBook = function(e) {
+//     console.log();
+//     if(e.target.classList.contains('delete-btn')) {
+//         if(confirm('Are You Sure?')) {
+//             let parentElement = e.target.parentElement.parentElement;
+//             tbody.removeChild(parentElement);
+
+//             for (let i=0; i < myLibrary.length; i++) {
+//                 if (myLibrary[i].title === e.target.parentElement.parentElement.firstChild.innerText) {
+//                 console.log(myLibrary[i].title, "Does Match");
+//             } else {
+//                 console.log("doesnt match")
+//             }
+//             }
+            
+//         }
         
-    }
+//     }
     
-}
+// }
 
-function toggleRead(e) {
-    console.log(e.target);
-    if(e.target.innerText === "Have Read") {
-        e.target.innerText = "Not Read";
-        e.target.classList.remove('read-button-true');
-        e.target.classList.add('read-button-false');
-        read.value = false;
-        console.log(Book);
-        console.log(myLibrary[0])
-    } else if (e.target.innerText === "Not Read") {
-        e.target.innerText = "Have Read";
-        e.target.classList.remove('read-button-false');
-        e.target.classList.add('read-button-true');
-        read.value = false;
-        console.log(Book);
-        console.log(myLibrary[0].read);
-    }
-}
+// DeleteBook.prototype = Object.create(Book.prototype);
+
+// Book.prototype = {
+//     deleteBook(e) {
+//         console.log(e);
+//     }
+// };
 
 
 
-// Book.prototype.sayRead = function() {
-//     console.log(this.read);
+
+// function toggleRead(e) {
+//     console.log(e.target);
+//     if(e.target.innerText === "Have Read") {
+//         e.target.innerText = "Not Read";
+//         e.target.classList.remove('read-button-true');
+//         e.target.classList.add('read-button-false');
+//         read.value = false;
+//         console.log(Book);
+//         console.log(myLibrary[0])
+//     } else if (e.target.innerText === "Not Read") {
+//         e.target.innerText = "Have Read";
+//         e.target.classList.remove('read-button-false');
+//         e.target.classList.add('read-button-true');
+//         read.value = false;
+//         console.log(Book);
+//         console.log(myLibrary[0]);
+//     }
 // }

@@ -8,76 +8,49 @@
     <script src="main.js" defer></script>
     <link href='https://fonts.googleapis.com/css?family=Charm' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Khula' rel='stylesheet' type='text/css'>
-    
     <title>Library</title>
 </head>
 <body>
+
     <img src="paper-bkg.jpg" alt="Paper background image">
     <form>
-            <div>
+        <div>
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title" required>
             <span class="validation"></span>
-            </div>
-            <div>
+        </div>
+        <div>
             <label for="author">Author</label>
             <input type="text" name="author" id="author" required>
             <span class="validation"></span>
-            </div>
-            <div>
+        </div>
+        <div>
             <label for="pages">Number of Pages</label>
             <input type="number" name="pages" id="pages" min="1" required>
-                <span class="validation"></span>
+            <span class="validation"></span>
         </div>
-            <div>
+        <div>
             <label for="read">Status</label>
             <select id="read">
                 <option value="have-read" selected>Have Read</option>
                 <option value="not-read">Not Read</option>
             </select>
-            </div>
-            <div>
+        </div>
+        <div>
             <input id="submit" value="ADD BOOK" type="submit"></input>
-            </div>
-        </form>
+        </div>
+    </form>
 
-
-        <table id="library-table">
-            <tbody class="tbody">
+    <table id="library-table">
+        <tbody class="tbody">
             <tr>
-            <th class="book-item-header item-title">Book Title</th>
-            <th class="book-item-header item-author">Author</th>
-            <th class="book-item-header item-pages">Page Numbers</th>
-            <th class="book-item-header item-read">Read Status</th>
-            <th class="delete-btn-header"></th>
+                <th class="book-item-header item-title">Book Title</th>
+                <th class="book-item-header item-author">Author</th>
+                <th class="book-item-header item-pages">Page Numbers</th>
+                <th class="book-item-header item-read">Read Status</th>
+                <th class="delete-btn-header"></th>
             </tr>
-    
-            
-
-
-            </tbody>
-             <!-- <tr>
-            <td class="book-item">Harry Potter</td>
-            <td class="book-item">JK Rowling</td>
-            <td class="book-item">678</td>
-            <td class="book-item"><button>Have Read</button></td>
-            </tr>
-            <tr>
-                <td class="book-item">Harry Potter</td>
-                <td class="book-item">JK Rowling</td>
-                <td class="book-item">678</td>
-                <td class="book-item"><button>Have Read</button></td>
-                </tr>
-                <tr>
-                    <td class="book-item">Harry Potter</td>
-                    <td class="book-item">JK Rowling</td>
-                    <td class="book-item">678</td>
-                    <td class="book-item"><button>Have Read</button></td>
-                    </tr> -->
-        </table>
-
-
-
-    
+        </tbody>
+    </table>   
 </body>
 </html>

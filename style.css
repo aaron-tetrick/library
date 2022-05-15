@@ -1,14 +1,16 @@
+/*UNIVERSAL STYLING*/
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Khula", sans-serif;
 }
+
 html {
     position: relative;
     height: 100vh;
-
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -16,14 +18,14 @@ body {
     align-items: center;
     height: 100%;
 }
-
+/*BACKGROUND IMAGE*/
 img {
     z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0.2;
-    transform: scale(-1);
+    transform: scale(1);
 }
 
 /*FORM STYLING*/
@@ -31,13 +33,11 @@ form {
     display: grid;
     justify-content: flex-end;
     align-items: center;
-    width: 100%;
-    height: 350x;
-    padding: 10px;
     position: relative;
-    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 425px;
+    padding: 10px;
     margin-top: 25px;
-    
 }
 
 form::before {
@@ -50,8 +50,6 @@ form::before {
     background-size: cover;
     background-image: url(books.jpg);
     background-position: center;
-    background-repeat: repeat; 
-    border-radius: 5px;
     box-shadow: 0px 3px 10px 1px black;
 }
 
@@ -61,11 +59,8 @@ form > div {
     align-items: center;
     padding: 10px;
     font-size: 22px;
-    font-weight: bold;
     position: relative;
     margin-right: 500px;
-    height: 100%;
-    text-align: center;
 }
 
 select {
@@ -74,40 +69,34 @@ select {
     text-align: center;
     font-size: 20px;
     border-radius: 5px;
-    border: none;
     background-color: white;
-
 }
+
 form input[type="text"],
-form input[type="number"]
- {
+form input[type="number"] {
     height: 26px;
     width: 300px;
     padding: 15px 5px;
     font-size: 22px;
     border-radius: 5px;
-    border: none;
 }
-
-
 
 form input[type="submit"] {
     width: 150px;
     height: 35px;
     border-radius: 8px;
     background-color: #5a92df;
-    border: 5px solid #5a92fd;
-    color: rgb(0, 0, 0);
+    border: 5px solid #5a92df;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 18px;
-    box-shadow: 0px 0px 2px 0px black;
+    box-shadow: 0px 0px 3px 0.3px black;
 }
+
 label {
-    font-family: "Khula", sans-serif;
-    font-weight: normal;
     font-size: 22px;
 }
 
@@ -132,7 +121,6 @@ label {
 }
 
 .book-item-header {
-    background-color: white;
     font-size: 27px;
     text-align: center;
     font-family: "Charm", sans-serif;
@@ -144,24 +132,21 @@ label {
     font-size: 27px;
     text-align: center;
     font-family: "Charm", sans-serif;
-
 }
 
+.book-item,
+.delete-item {
+    height: 50px;
+    text-align: center;
+}
 
 .book-item {
-    height: 50px;
     font-size: 22px;
     padding: 5px 100px;
-    text-align: center;
-    font-weight: lighter;
-    border: none;
     max-width: 500px;
 }
 
 .delete-item {
-    height: 50px;
-    text-align: center;
-    font-weight: lighter;
     padding: 5px 35px;
 }
 
@@ -183,10 +168,11 @@ label {
     width: 100%;
     height: 35px;
     font-size: 15px;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 5px;
     font-weight: bold;
 }
+
 .read-button-true {
     background-color: #6cc0e7;
     border: 1px solid #6cc0e7;
@@ -198,7 +184,7 @@ label {
 }
 
 tr:nth-child(even) {
-    background-color: #5a92df; 
+   background-color: #5a92df; 
    border-radius: 8px;
 }
 
@@ -207,20 +193,7 @@ tr:nth-child(odd) {
     border-radius: 8px;
 }
 
-
-/*PSEDUO CLASSES*/
-
-form input[type="submit"]:hover {
-    background-color: #6cc0e7;
-    border: 5px solid #6cc0e7;
-    transition: 0.8s;
-}
-
-.delete-btn:hover {
-    filter: brightness(125%);
-    transition: 0.5s;
-}
-
+/*PSEUDO CLASSES AND PSEUDO ELEMENTS*/
 input[type="text"]:valid,
 input[type="number"]:valid {
     border: 2px solid green;
@@ -255,9 +228,15 @@ input:valid + .validation:after {
     right: -20px;
 }
 
+form input[type="submit"]:hover {
+    background-color: #6cc0e7;
+    border: 5px solid #6cc0e7;
+    transition: 0.8s;
+}
+
 .read-button-true:hover,
-.read-button-false:hover {
+.read-button-false:hover,
+.delete-btn:hover   {
     filter: brightness(125%);
     transition: 0.5s;
 }
-
