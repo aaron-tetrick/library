@@ -17,19 +17,22 @@
             <div>
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title" required>
+            <span class="validation"></span>
             </div>
             <div>
             <label for="author">Author</label>
             <input type="text" name="author" id="author" required>
+            <span class="validation"></span>
             </div>
             <div>
             <label for="pages">Number of Pages</label>
             <input type="number" name="pages" id="pages" min="1" required>
-            </div>
+                <span class="validation"></span>
+        </div>
             <div>
             <label for="read">Status</label>
-            <select name="read" id="read">
-                <option value="have-read">Have Read</option>
+            <select id="read">
+                <option value="have-read" selected>Have Read</option>
                 <option value="not-read">Not Read</option>
             </select>
             </div>

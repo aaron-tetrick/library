@@ -69,21 +69,27 @@ form > div {
 }
 
 select {
-    justify-self: center;
+    height: 30px;
+    width: 300px;
     text-align: center;
-}
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
 
+}
 form input[type="text"],
-form input[type="number"],
-select {
+form input[type="number"]
+ {
     height: 26px;
     width: 300px;
     padding: 15px 5px;
     font-size: 22px;
     border-radius: 5px;
     border: none;
-    
 }
+
+
 
 form input[type="submit"] {
     width: 150px;
@@ -157,9 +163,6 @@ label {
     text-align: center;
     font-weight: lighter;
     padding: 5px 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .delete-btn {
@@ -167,11 +170,12 @@ label {
     height: 25px;
     background-color: #e03e4b;
     border: solid 1px #e03e4b;
-    border-radius: 8px;
-    padding: 0px;
+    border-radius: 4px;
     font-weight: bold;
     color: white;
     font-size: 16px;
+    align-self: center;
+    box-shadow: 0px 0px 3px 0.3px black;
 }
 
 .read-button-true,
@@ -213,8 +217,13 @@ form input[type="submit"]:hover {
 }
 
 .delete-btn:hover {
-    filter: brightness(150%);
-    transition: 0.8s;
+    filter: brightness(125%);
+    transition: 0.5s;
+}
+
+input[type="text"]:valid,
+input[type="number"]:valid {
+    border: 2px solid green;
 }
 
 input[type="text"]:invalid,
@@ -222,9 +231,33 @@ input[type="number"]:invalid {
     border: 2px solid #e03e4b;
 }
 
-input[type="text"]:invalid::after,
-input[type="number"]:invalid::after {
-    content: 'Hello';
+.validation + input {
+    position: relative;
+}
 
+input:invalid + .validation:after {
+    font-size: 1.5rem;
+    position: absolute;
+    content: '\274C';
+    color: #e03e4b;
+    padding: 5px;
+    top: 42px;
+    right: -17px;
+}
+
+input:valid + .validation:after {
+    font-size: 1.75rem;
+    position: absolute;
+    content: '\2713';
+    color: green;
+    padding: 5px;
+    top: 38px;
+    right: -20px;
+}
+
+.read-button-true:hover,
+.read-button-false:hover {
+    filter: brightness(125%);
+    transition: 0.5s;
 }
 

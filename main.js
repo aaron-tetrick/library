@@ -32,6 +32,7 @@ function addBooktoLibrary(title, author, pages, read) {
     const bookObj = new Book(title, author, pages, read);
     myLibrary.push(bookObj);
     displayBook(title, author, pages, read);
+    console.log(myLibrary);
 }
 
 function displayBook(title, author, pages, read) {
@@ -51,6 +52,7 @@ function displayBook(title, author, pages, read) {
     newAuthor.className = "book-item";
     newPages.className = "book-item";
     newRead.className = "book-item";
+    deleteLine.className = "book-item";
     deleteLine.className = "delete-item";
     deletebtn.className = "delete-btn";
 
