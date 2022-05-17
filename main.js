@@ -29,6 +29,9 @@ function Book(title, author, pages, read) {
     this.bookAuthor = author;
     this.bookPages = pages;
     this.bookRead = read;
+   // let displayBook1 = function() {
+
+  //  }
     console.log(title);
     console.log(this);
     console.log(this.title)
@@ -43,38 +46,48 @@ function Book(title, author, pages, read) {
 const addBookToLibrary = function(newTitle, newAuthor, newPages, newRead) {
     const bookObj = new Book(newTitle, newAuthor, newPages, newRead);
     myLibrary.push(bookObj);
-    //displayBook(title, author, pages, read);
-    console.log(myLibrary);
-    console.dir(bookObj);
-    console.log(this);
-    console.log(this.title);
-    console.log(this.bookTitle);
-    console.log(this.newTitle);
+    displayBook(bookObj);
 };
 
-
 addBookToLibrary.prototype = Object.create(Book.prototype);
-console.dir(addBookToLibrary);
 
-const displayBook = function() {
-    const newObj = {}
-    console.log(newObj); 
+
+
+const displayBook = function(newBook) {
+
+        let newTitle = document.createElement('tr');
+    for (i=0; i < myLibrary.length; i++) {
+        console.log(newBook.bookTitle, "HIIIIII");
+        return;
+        // console.log(this);
+        // console.log(this.Book);
+        // console.log(this.Book.prototype);
+        // console.log(this.addBookToLibrary);
+    }
+    // console.log(this.bookAuthor);
+    // console.log(Book);
+    // console.log(Book.prototype);
+    // console.log(addBookToLibrary.prototype)
 }
-displayBook.prototype = Object.create(Book.prototype)
-console.log(displayBook());
 
-//I want my book entry to be entered into the myLibrary array
+
+displayBook.prototype = Object.create(Book.prototype)
+console.dir(displayBook);
+console.dir(addBookToLibrary);
+console.dir(Book)
+console.dir(displayBook.prototype);
+console.dir(addBookToLibrary.prototype);
+console.dir(Book.prototype);
+
+//X// I want my book entry to be entered into the myLibrary array 
 //I want to display the myLibrary array onto the page
 //I want to press the read-btn and change the status on the page and in the myLibrary array
+//^^^Locate the bookObject by the myLibray index then change myLibrary[i].Book/bookObj.read = "have-read" or "not-read"
+
 //I want to press the delete-btn and delete the entry on the page and in the myLibrary array
-
-
-
-
-
-
-
-
+//^^^Locate the bookObject by the myLibrary index then myLibrary.slice()/splice() <-- one of those
+//Create a loop in the displayBook function and loop through the myLibrary and use this.bookTitle, this.bookAuthor, etc.
+//Try the forEach loop, appending each to the page.
 
 
 
