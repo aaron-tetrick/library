@@ -39,7 +39,8 @@ const addBookToLibrary = function(newTitle, newAuthor, newPages, newRead) {
     const bookObj = new Book(newTitle, newAuthor, newPages, newRead);
     myLibrary.push(bookObj);
     displayBook(bookObj);
-    console.log(myLibrary);
+    console.log(myLibrary, "Add a new entry");
+    console.log(tbody, "Add a new entry");
 };
 
 addBookToLibrary.prototype = Object.create(Book.prototype);
@@ -109,21 +110,14 @@ const displayBook = function(newBook) {
 newReadBtn.addEventListener('click', toggleRead);
 deleteBtn.addEventListener('click', deleteEntry);
 
-
-console.log(tbody);
-console.log(myLibrary);
-
-
-
 }
 
 displayBook.prototype = Object.create(Book)
 
+//Creates an array
+let entryArray;
 //Delete an entry from the webpage, delete the corresponding myLibrary index, reset the id attribute
 function deleteEntry(e) {
-    //Creates an array
-    let entryArray;
-
     if(e.target.classList.contains('delete-btn')) {
         //If confirm, remove the entry from webpage
         if(confirm('Are You Sure?')){
@@ -131,8 +125,8 @@ function deleteEntry(e) {
             tbody.removeChild(bookEntry);
         }
 
-         //Removes entry from Library Array
-         for (i=0; i < myLibrary.length; i++) {
+           //Removes entry from Library Array
+           for (i=0; i < myLibrary.length; i++) {
             myLibrary.splice(newBookLine.id, 1);
             console.log(newBookLine.id);
         }
@@ -150,29 +144,64 @@ function deleteEntry(e) {
             if (entryArray[i].classList.contains("book-line")) {
                 entryArray[i].setAttribute('id', (i-1));
             };
+
+     
     };
 
-    console.log(entryArray);
+    //I want to take change the Read Status of each book entry that is left
+    //I need to set myLibrary[i].bookRead for each entry to the correct status
+    //if (entryArray[i+1].classList.contains("book-line")) {
+   //firstChild is causing issues
+   //Try creating this in a whol new function.
+for(i=0; i < myLibrary.length; i++) {
+    console.log(i);
+        console.log(entryArray[i+1].children[3].firstChild.innerText, "<--class");
+        console.log(tbody)
+    if(entryArray[i+1].children[3].firstChild.classList.innerText = "Have Read") {
+        myLibrary[i].bookRead = "have-read";
+        entryArray[i+1].children[3].firstChild.className = 'read-button-true';
+        console.log(entryArray[i+1].children[3].firstChild.className)
+    } else if (entryArray[i+1].children[3].firstChild.innerText = "Not Read") {
+        myLibrary[i].bookRead = "not-read";
+        entryArray[i+1].children[3].firstChild.className = 'read-button-false';
+        console.log(entryArray[i+1].children[3].firstChild.className)
+    }
+    console.log(myLibrary[i].bookRead)
+
+    //let number = entryArray[i+1].getAttribute('id');
+    // console.log(i, entryArray[i+1].children[3].firstChild.classList.value);
+        // //console.log(number);
+        // console.log(myLibrary[i].bookRead);
+        // console.log()
+    }
+    //console.log(entryArray);
     console.log(myLibrary);
+    console.log(tbody);
 }
 }
 
 
 //Toggle read button
 function toggleRead(e) {
+    console.log(e.target.parentElement.parentElement);
+    console.log(tbody);
+    console.log(newBookLine)
+    console.log(newBookLine.id)
+
         if(e.target.classList.contains("read-button-true")) {
         e.target.classList.toggle("read-button-true");
         e.target.classList.toggle("read-button-false");
-        newReadBtn.innerText = 'Not Read'
-        myLibrary[newBookLine.id].bookRead = "not-read";
+        e.target.innerText = 'Not Read'
+        myLibrary[e.target.parentElement.parentElement.id].bookRead = "not-read";
         } else if (e.target.classList.contains("read-button-false")) {
             e.target.classList.toggle("read-button-false");
             e.target.classList.toggle("read-button-true");
-            newReadBtn.innerText = 'Have Read';
-            myLibrary[newBookLine.id].bookRead = "have-read";
+            e.target.innerText = 'Have Read';
+            myLibrary[e.target.parentElement.parentElement.id].bookRead = "have-read";
         }
-        console.log(myLibrary[newBookLine.id].bookRead);
-        console.log(myLibrary);
+        //console.log(entryArray);
+        console.log(myLibrary)
+        console.log(tbody);
     }
 
 //     if(entry.classList.contains('book-line')) {
