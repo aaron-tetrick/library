@@ -197,10 +197,9 @@ tr:nth-child(odd) {
 /*CREDITS*/
 .credits {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    top: 44%;
+    right: 10px;
     font-size: 10px;
-    margin-right: 10px;
     font-family:  "Khula", sans-serif;
     display: flex;
     flex-direction: column;
@@ -210,11 +209,9 @@ tr:nth-child(odd) {
 
 .signature {
     position: fixed;
-    left: 0;
-    bottom: 0;
-    font-size: 22px;
-    margin-left: 10px;
-    margin-bottom: 5px;
+    left: 10px;
+    top: 44%;
+    font-size: 20px;
     font-family: "Charm", sans-serif;
     display: flex;
     flex-direction: column;

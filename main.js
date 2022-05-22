@@ -30,8 +30,6 @@ const addBookToLibrary = function(newTitle, newAuthor, newPages, newRead) {
     const bookObj = new Book(newTitle, newAuthor, newPages, newRead);
     myLibrary.push(bookObj);
     displayBook(bookObj);
-    console.log(myLibrary, "Add a new entry");
-    console.log(tbody, "Add a new entry");
 };
 
 addBookToLibrary.prototype = Object.create(Book.prototype);
@@ -120,8 +118,6 @@ function deleteEntry(e) {
             };
         };
     };
-    console.log(myLibrary);
-    console.log(tbody);
 };
 
 //Toggle read button
@@ -137,6 +133,4 @@ function toggleRead(e) {
             e.target.innerText = 'Have Read';
             myLibrary[e.target.parentElement.parentElement.id].bookRead = "have-read";
         };
-        console.log(myLibrary);
-        console.log(tbody);
     };
