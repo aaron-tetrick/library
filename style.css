@@ -18,6 +18,7 @@ body {
     align-items: center;
     height: 100%;
 }
+
 /*BACKGROUND IMAGE*/
 img {
     z-index: -1;
@@ -193,6 +194,41 @@ tr:nth-child(odd) {
     border-radius: 8px;
 }
 
+/*CREDITS*/
+.credits {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 10px;
+    margin-right: 10px;
+    font-family:  "Khula", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signature {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: 22px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-family: "Charm", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signature > a {
+    font-family: "Charm", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
 /*PSEUDO CLASSES AND PSEUDO ELEMENTS*/
 input[type="text"]:valid,
 input[type="number"]:valid {
@@ -239,4 +275,8 @@ form input[type="submit"]:hover {
 .delete-btn:hover   {
     filter: brightness(125%);
     transition: 0.5s;
+}
+
+.signature > a:hover {
+    color:#5a92df;
 }
