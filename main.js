@@ -17,13 +17,15 @@ function runEvent(e) {
     e.preventDefault();
 };
 
-//BOOK CONSTRUCTOR FUNCTION
-function Book(title, author, pages, read) {
-    this.bookTitle = title;
-    this.bookAuthor = author;
-    this.bookPages = pages;
-    this.bookRead = read;
-};
+//BOOK JS CLASS
+class Book {
+    constructor(title, author, pages, read) {
+        this.bookTitle = title;
+        this.bookAuthor = author;
+        this.bookPages = pages;
+        this.bookRead = read;
+    }
+}
 
 //ADDS NEW BOOK TO LIBRARY
 const addBookToLibrary = function(newTitle, newAuthor, newPages, newRead) {
@@ -31,8 +33,6 @@ const addBookToLibrary = function(newTitle, newAuthor, newPages, newRead) {
     myLibrary.push(bookObj);
     displayBook(bookObj);
 };
-
-addBookToLibrary.prototype = Object.create(Book.prototype);
 
 //DISPLAYS NEW BOOK ENTRY ON THE PAGE
 const displayBook = function(newBook) {
@@ -89,8 +89,6 @@ const displayBook = function(newBook) {
 newReadBtn.addEventListener('click', toggleRead);
 deleteBtn.addEventListener('click', deleteEntry);
 };
-
-displayBook.prototype = Object.create(Book)
 
 //Delete an entry from the webpage, delete the corresponding myLibrary index, reset the id attribute
 function deleteEntry(e) {
